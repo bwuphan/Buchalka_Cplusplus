@@ -10,24 +10,39 @@
 #include <vector>
 using namespace std;
 
-int main(int argc, const char * argv[]) {
-  // insert code here...
-  std::cout << "Hello, World!\n";
-  return 0;
-}
-
 vector<int> getChange(int centsRemain, vector<int> change) {
-  if (centsRemain == 0) {
+  if (centsRemain <= 0) {
     return change;
   }
-  if (centsRemain >= 25) {
+  if (centsRemain >= 100) {
     change[0] += 1;
-  } else if (centsRemain >= 10) {
+    centsRemain -= 100;
+  } else if (centsRemain >= 25) {
     change[1] += 1;
-  } else if (centsRemain >= 5) {
+    centsRemain -= 25;
+  } else if (centsRemain >= 10) {
     change[2] += 1;
-  } else {
+    centsRemain -= 10;
+  } else if (centsRemain >= 5) {
     change[3] += 1;
+    centsRemain -= 5;
+  } else {
+    change[4] += 1;
+    centsRemain -= 1;
   }
   return getChange(centsRemain, change);
+}
+
+int main(int argc, const char * argv[]) {
+  int change = 0;
+  cout << "Enter change you need in cents : ";
+  cin >> change;
+  vector<int> initChange = {0,0,0,0,0};
+  vector<int> finalChange = getChange(change, initChange);
+  cout << "Dollars  : " << finalChange[0] << endl;
+  cout << "Quarters : " << finalChange[1] << endl;
+  cout << "Dimes    : " << finalChange[2] << endl;
+  cout << "Nickels  : " << finalChange[3] << endl;
+  cout << "Pennies  : " << finalChange[4] << endl;
+  return 0;
 }
