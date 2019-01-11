@@ -7,6 +7,8 @@
 //
 
 #include <iostream>
+#include <vector>
+using namespace std;
 
 int main(int argc, const char * argv[]) {
   // insert code here...
@@ -14,3 +16,18 @@ int main(int argc, const char * argv[]) {
   return 0;
 }
 
+vector<int> getChange(int centsRemain, vector<int> change) {
+  if (centsRemain == 0) {
+    return change;
+  }
+  if (centsRemain >= 25) {
+    change[0] += 1;
+  } else if (centsRemain >= 10) {
+    change[1] += 1;
+  } else if (centsRemain >= 5) {
+    change[2] += 1;
+  } else {
+    change[3] += 1;
+  }
+  return getChange(centsRemain, change);
+}
