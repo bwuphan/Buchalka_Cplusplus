@@ -10,10 +10,11 @@
 #include <vector>
 using namespace std;
 
-vector<int> getChange(int centsRemain, vector<int> change) {
+vector<int> getChange(int centsRemain, vector<int> change = {0,0,0,0,0}) {
   if (centsRemain <= 0) {
     return change;
   }
+  
   if (centsRemain >= 100) {
     change[0] += 1;
     centsRemain -= 100;
@@ -30,15 +31,18 @@ vector<int> getChange(int centsRemain, vector<int> change) {
     change[4] += 1;
     centsRemain -= 1;
   }
+  
   return getChange(centsRemain, change);
 }
 
 int main(int argc, const char * argv[]) {
   int change = 0;
+  
   cout << "Enter change you need in cents : ";
   cin >> change;
-  vector<int> initChange = {0,0,0,0,0};
-  vector<int> finalChange = getChange(change, initChange);
+  
+  vector<int> finalChange = getChange(change);
+  
   cout << "Dollars  : " << finalChange[0] << endl;
   cout << "Quarters : " << finalChange[1] << endl;
   cout << "Dimes    : " << finalChange[2] << endl;
