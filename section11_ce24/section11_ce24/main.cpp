@@ -12,8 +12,13 @@ using namespace std;
 
 //----DO NOT MODIFY THE CODE ABOVE THIS LINE----
 //----WRITE YOUR FUNCTION PROTOTYPES BELOW THIS LINE----
+int find_area(int length) {
+  return length * length;
+};
 
-
+double find_area(double length, double width) {
+  return length * width;
+}
 
 
 //----WRITE YOUR FUNCTION PROTOTYPES ABOVE THIS LINE----
@@ -24,7 +29,8 @@ void area_calc() {
   //----DO NOT MODIFY THE CODE ABOVE THIS LINE----
   //----WRITE YOUR FUNCTION CALLS BELOW THIS LINE----
   
-  
+  int square_area = find_area(2);
+  double rectangle_area = find_area(4.5, 2.3);
   
   
   //----WRITE YOUR FUNCTION CALLS ABOVE THIS LINE----
@@ -35,6 +41,14 @@ void area_calc() {
 
 //----DO NOT MODIFY THE CODE ABOVE THIS LINE----
 //----WRITE YOUR FUNCTION DEFINITIONS BELOW THIS LINE----
+
+
+
+
+
+
+
+
 
 
 
