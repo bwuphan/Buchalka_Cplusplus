@@ -7,22 +7,30 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <string>
+
 using namespace std;
 
-string askUser();
-
+char askUser();
+void printNumbers(int &arr);
 
 int main(int argc, const char * argv[]) {
-  string response = "";
-  while (response != "Q") {
+  char response;
+
+  vector<int> vect {};
+  do {
     response = askUser();
-  }
+    cout << "response: " << response << endl;
+    cout << (response == 'Q');
+  } while (response != 'Q');
+  
   
   return 0;
 }
 
-string askUser() {
-  string response = "";
+char askUser() {
+  char response;
   cout << "Please select from these choices." << endl;
   cout << "P - Print numbers." << endl;
   cout << "A - Add a number." << endl;
@@ -32,5 +40,7 @@ string askUser() {
   cout << "Q - Quit." << endl;
   
   cin >> response;
+  response = toupper(response);
+  
   return response;
 }
