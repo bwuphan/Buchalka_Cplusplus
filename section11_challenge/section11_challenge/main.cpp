@@ -14,6 +14,7 @@ using namespace std;
 
 char askUser(vector<int> &vect);
 void printNumbers(vector<int> &vect);
+void addNumber(vector<int> &vect);
 
 int main(int argc, const char * argv[]) {
   char response;
@@ -44,6 +45,8 @@ char askUser(vector<int> &vect) {
   
   if (response == 'P') {
     printNumbers(vect);
+  } else if (response == 'A') {
+    addNumber(vect);
   }
   
   return response;
@@ -55,4 +58,13 @@ void printNumbers(vector<int> &vect) {
   for (size_t i = 0; i < vect.size(); i++) {
     cout << vect[i] << endl;
   }
+}
+
+
+void addNumber(vector<int> &vect) {
+  cout << "Enter a number: ";
+  
+  int newNum;
+  cin >> newNum;
+  vect.push_back(newNum);
 }
