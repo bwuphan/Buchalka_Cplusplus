@@ -8,16 +8,29 @@
 
 #include <iostream>
 using namespace std;
-void askUser();
 
+string askUser();
 
 
 int main(int argc, const char * argv[]) {
-  // insert code here...
-  std::cout << "Hello, World!\n";
+  string response = "";
+  while (response != "Q") {
+    response = askUser();
+  }
+  
   return 0;
 }
 
-void askUser() {
-
+string askUser() {
+  string response = "";
+  cout << "Please select from these choices." << endl;
+  cout << "P - Print numbers." << endl;
+  cout << "A - Add a number." << endl;
+  cout << "M - Display mean of numbers." << endl;
+  cout << "S - Display the smallest number." << endl;
+  cout << "L - Display the largest number." << endl;
+  cout << "Q - Quit." << endl;
+  
+  cin >> response;
+  return response;
 }
