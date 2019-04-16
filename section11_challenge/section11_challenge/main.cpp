@@ -15,11 +15,12 @@ using namespace std;
 char askUser(vector<int> &vect);
 void printNumbers(vector<int> &vect);
 void addNumber(vector<int> &vect);
+void displayMean(vector<int> &vect);
 
 int main(int argc, const char * argv[]) {
   char response;
 
-  vector<int> vect {1,2,3};
+  vector<int> vect {1,2,10};
   do {
     response = askUser(vect);
     cout << "response: " << response << endl;
@@ -47,6 +48,8 @@ char askUser(vector<int> &vect) {
     printNumbers(vect);
   } else if (response == 'A') {
     addNumber(vect);
+  } else if (response == 'M') {
+    displayMean(vect);
   }
   
   return response;
@@ -67,4 +70,16 @@ void addNumber(vector<int> &vect) {
   int newNum;
   cin >> newNum;
   vect.push_back(newNum);
+}
+
+
+void displayMean(vector<int> &vect) {
+  double total = 0.0;
+  for (size_t i = 0; i < vect.size(); i++) {
+    total += vect[i];
+  }
+  
+  double vectSize = vect.size();
+  double mean = total / vectSize;
+  cout << "Mean: " << mean << endl;
 }
