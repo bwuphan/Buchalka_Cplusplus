@@ -12,24 +12,24 @@
 
 using namespace std;
 
-char askUser();
-void printNumbers(int &arr);
+char askUser(vector<int> &vect);
+void printNumbers(vector<int> &vect);
 
 int main(int argc, const char * argv[]) {
   char response;
 
-  vector<int> vect {};
+  vector<int> vect {1,2,3};
   do {
-    response = askUser();
+    response = askUser(vect);
     cout << "response: " << response << endl;
-    cout << (response == 'Q');
   } while (response != 'Q');
   
   
   return 0;
 }
 
-char askUser() {
+
+char askUser(vector<int> &vect) {
   char response;
   cout << "Please select from these choices." << endl;
   cout << "P - Print numbers." << endl;
@@ -42,5 +42,17 @@ char askUser() {
   cin >> response;
   response = toupper(response);
   
+  if (response == 'P') {
+    printNumbers(vect);
+  }
+  
   return response;
+}
+
+
+void printNumbers(vector<int> &vect) {
+  cout << "P selected. Array results here: " << endl;
+  for (size_t i = 0; i < vect.size(); i++) {
+    cout << vect[i] << endl;
+  }
 }
