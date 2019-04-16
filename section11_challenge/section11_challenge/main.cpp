@@ -16,11 +16,12 @@ char askUser(vector<int> &vect);
 void printNumbers(vector<int> &vect);
 void addNumber(vector<int> &vect);
 void displayMean(vector<int> &vect);
+void displaySmallest(vector<int> &vect);
 
 int main(int argc, const char * argv[]) {
   char response;
 
-  vector<int> vect {1,2,10};
+  vector<int> vect {1,2,10,-1};
   do {
     response = askUser(vect);
     cout << "response: " << response << endl;
@@ -50,6 +51,8 @@ char askUser(vector<int> &vect) {
     addNumber(vect);
   } else if (response == 'M') {
     displayMean(vect);
+  } else if (response == 'S') {
+    displaySmallest(vect);
   }
   
   return response;
@@ -82,4 +85,19 @@ void displayMean(vector<int> &vect) {
   double vectSize = vect.size();
   double mean = total / vectSize;
   cout << "Mean: " << mean << endl;
+}
+
+
+void displaySmallest(vector<int> &vect) {
+  if (vect.size() > 0) {
+    int smallest = vect[0];
+    for (size_t i = 1; i < vect.size(); i++) {
+      if (vect[i] < smallest) {
+        smallest = vect[i];
+      }
+    }
+    cout << "The smallest is: " << smallest << endl;
+  } else {
+    cout << "The vector is empty." << endl;
+  }
 }
