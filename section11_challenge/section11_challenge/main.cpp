@@ -13,11 +13,11 @@
 using namespace std;
 
 char askUser(vector<int> &vect);
-void printNumbers(vector<int> &vect);
+void printNumbers(const vector<int> &vect);
 void addNumber(vector<int> &vect);
-void displayMean(vector<int> &vect);
-void displaySmallest(vector<int> &vect);
-void displayLargest(vector<int> &vect);
+void displayMean(const vector<int> &vect);
+void displaySmallest(const vector<int> &vect);
+void displayLargest(const vector<int> &vect);
 
 int main(int argc, const char * argv[]) {
   char response;
@@ -62,7 +62,7 @@ char askUser(vector<int> &vect) {
 }
 
 
-void printNumbers(vector<int> &vect) {
+void printNumbers(const vector<int> &vect) {
   cout << "P selected. Array results here: " << endl;
   for (size_t i = 0; i < vect.size(); i++) {
     cout << vect[i] << endl;
@@ -79,7 +79,7 @@ void addNumber(vector<int> &vect) {
 }
 
 
-void displayMean(vector<int> &vect) {
+void displayMean(const vector<int> &vect) {
   double total = 0.0;
   for (size_t i = 0; i < vect.size(); i++) {
     total += vect[i];
@@ -91,7 +91,7 @@ void displayMean(vector<int> &vect) {
 }
 
 
-void displaySmallest(vector<int> &vect) {
+void displaySmallest(const vector<int> &vect) {
   if (vect.size() > 0) {
     int smallest = vect[0];
     for (size_t i = 1; i < vect.size(); i++) {
@@ -106,7 +106,7 @@ void displaySmallest(vector<int> &vect) {
 }
 
 
-void displayLargest(vector<int> &vect) {
+void displayLargest(const vector<int> &vect) {
   if (vect.size() > 0) {
     int largest = vect[0];
     for (size_t i = 1; i < vect.size(); i++) {
