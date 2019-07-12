@@ -16,7 +16,10 @@ public:
     int get_human_years() { return age * 7; }
     string speak() { return "Woof"; }
     //---- WRITE YOUR CLASS FUNCTIONS BELOW THIS LINE----
-
+    Dog() {
+      name = "None";
+      age = 0;
+    }
     
     //---- WRITE YOUR CLASS FUNCTIONS ABOVE THIS LINE----
 };
