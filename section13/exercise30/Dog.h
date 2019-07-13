@@ -21,6 +21,11 @@ public:
       age = 0;
     }
     
+    Dog(string n, int a) {
+      name = n;
+      age = a;
+    }
+        
     //---- WRITE YOUR CLASS FUNCTIONS ABOVE THIS LINE----
 };
 #endif 
