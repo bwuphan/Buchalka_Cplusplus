@@ -25,7 +25,10 @@ public:
       name = n;
       age = a;
     }
-        
+      Dog (const Dog &c) : name{c.name}, age{c.age} {
+      cout << "Copy Constructor";
+    }
+
     //---- WRITE YOUR CLASS FUNCTIONS ABOVE THIS LINE----
 };
 #endif 
